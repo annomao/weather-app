@@ -42,10 +42,9 @@ body{
 #city-input::placeholder{
   color: white;
 }
-button[type="submit"]{
-  float:right;
+button{
   width:20%;
-  background-color: rgb(66,75,82);
+  background-color: transparent;
   border: 1px solid white;
   padding: 10px;
   color: white;
@@ -55,6 +54,11 @@ button[type="submit"]{
 button:hover{
   background-color: rgb(145,163,176); 
 }
+button[type="submit"]{
+  float:right;
+  background-color: rgb(66,75,82);
+}
+
 #city-form::after {
   content: "";
   clear: both;
@@ -89,7 +93,6 @@ table tr{
   font-size: 1em;
   font-weight: 600;
 }
-
 /* styling for screen sizes above 768px */
 @media screen and (min-width: 768px) {
   html {

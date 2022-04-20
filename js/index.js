@@ -95,8 +95,8 @@ function renderWeatherInfo(data){
     </tbody>
   </table>
   <div>
-  <button><i class="fa fa-thumbs-down"></i><span>0</span></button>
-  <button><i class="fa fa-thumbs-up"></i><span>0</span></button>
+  <button id="thumb-up"><i class="fa fa-thumbs-up"></i><span>0</span></button>
+  <button id="thumb-down"><i class="fa fa-thumbs-down"></i><span>0</span></button>
   </div>
   `
 }
