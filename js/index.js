@@ -54,9 +54,6 @@ function renderWeatherInfo(data){
   const weatherDetails = document.querySelector("#weather-details")
   const weatherSummary = document.querySelector(".weather-summary")
 
-  // weatherDetails.innerHTML = ""
-  // weatherSummary.innerHTML = ""
-
   weatherSummary.innerHTML = `
   <p id="city">${data.name}</p>
   <p id="degrees">${data.main.temp}&#8451</p>
@@ -99,4 +96,13 @@ function renderWeatherInfo(data){
   <button id="thumb-down"><i class="fa fa-thumbs-down"></i><span>0</span></button>
   </div>
   `
+  document.querySelector("#thumb-up").addEventListener("click",addThumbsEvent)
+  document.querySelector("#thumb-down").addEventListener("click",addThumbsEvent)
+}
+ //function to handle click events
+
+function addThumbsEvent(event){
+  let currentNumber = Number(event.target.parentNode.lastChild.innerText)
+  currentNumber +=1
+  event.target.parentNode.lastChild.innerText= currentNumber
 }
