@@ -12,7 +12,7 @@ body{
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 1);
 }
 .container{
   width: 100%;
@@ -78,6 +78,19 @@ button:hover{
 img{
   width: 100px;
   height: 100px;
+  display: inline-block;
+}
+#weather-description{
+  font-size: 1.3em;
+  font-weight: 800;
+}
+h4{
+  text-align: center;
+}
+table tr{
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 /* styling for screen sizes above 768px */
@@ -114,6 +127,9 @@ img{
     font-weight: 800;
   }
   table{
-    margin-top: 30%;
+    margin-top: 20%;
+  }
+  h4{
+    margin-top: 1em;
   }
 } 

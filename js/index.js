@@ -61,12 +61,17 @@ function renderWeatherInfo(data){
   <p id="city">${data.name}</p>
   <p id="degrees">${data.main.temp}&#8451</p>
   <img src=${iconUrl} alt=${data.weather[0].description}/>
+  <span id="weather-description">${data.weather[0].main}</span>
   <p id="time">${dt}</p> `
 
   weatherDetails.innerHTML = `
   <h4>Weather Details</h4>
-  <table class="table">
+  <table class="table table-borderless">
     <tbody>
+      <tr>
+        <th>Weather</th>
+        <td>${data.weather[0].description}</td>
+      </tr>
       <tr>
         <th>Cloudy</th>
         <td>${data.clouds.all}%</td>
