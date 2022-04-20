@@ -11,21 +11,25 @@
 </head>
 <body>
   <!-- This section has the form to get user input -->
-  <section id="city-section">
-    <form id="city-form">
-      <div class="mb-3">
-        <label for="city" class="form-label">City Name</label>
-        <input type="text" class="form-control" id="city" aria-describedby="cityHelp">
-        <div id="cityHelp" class="form-text">Kindly input a <strong>city</strong> name</div>
+  <div class="container d-flex justify-content-center">
+
+    <div class="items row">
+      <div class="col-md-8 left">
+
       </div>
-      <input type="submit" class="btn btn-primary" value="SUBMIT">
-    </form>
-  </section>
 
-  <!-- Section to display information gathered from API -->
-  <section id="display-section">
-
-  </section>
+      <div class="col-md-4 right">
+        <form id="city-form">
+          <div class="mb-3">
+            <label for="city" class="form-label">City Name</label>
+            <input type="text" class="form-control" id="city" aria-describedby="cityHelp">
+            <div id="cityHelp" class="form-text">Kindly input a <strong>city</strong> name</div>
+          </div>
+          <input type="submit" class="btn btn-primary" value="SUBMIT">
+        </form>
+      </div>
+    </div>
+  </div>
 
   <script src="js/index.js"></script>
 </body>
