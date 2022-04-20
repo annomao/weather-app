@@ -5,18 +5,69 @@ document.addEventListener("DOMContentLoaded", ()=>{
 function getWeatherData(){
   const displaySection = document.querySelector("#display-section")
   const cityForm = document.querySelector("#city-form")
-  const city = document.querySelector("#city")
+  const city = document.querySelector("#city-input")
   cityForm.addEventListener("submit",(event)=>{
 
     event.preventDefault()
 
     const cityName = city.value
     const appKey = 'd80e6647e32d60a5868d475d584ac6f2';
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${appKey}`)
+    const url =`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${appKey}&units=metric`
+    fetch(url)
     .then(res => res.json())
     .then (data => {
       console.log(data)
+      renderWeatherInfo(data)
     })
     event.target.reset()
   })
 }
+
+// function to display weather data based on city input
+function renderWeatherInfo(data){
+  let dt = new Date(data.dt * 1000)
+  let iconUrl=`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
+
+  const weatherDetails = document.querySelector("#weather-details")
+  const weatherSummary = document.querySelector(".weather-summary")
+
+  // weatherDetails.innerHTML = ""
+  // weatherSummary.innerHTML = ""
+
+  weatherSummary.innerHTML = `
+  <p id="city">${data.name}</p>
+  <p id="degrees">${data.main.temp}&#8451</p>
+  <img src=${iconUrl} alt=${data.weather[0].description}/>
+  <p id="time">${dt}</p> `
+
+  weatherDetails.innerHTML = `
+  <h4>Weather Details</h4>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th>Cloudy</th>
+        <td>${data.clouds.all}%</td>
+      </tr>
+      <tr>
+        <th>Temperature</th>
+        <td>${data.main.temp}&#8451;</td>
+      </tr>
+      <tr>
+        <th>Humidity</th>
+        <td>${data.main.humidity}</td>
+      </tr>
+      <tr>
+        <th>Wind</th>
+        <td>${data.wind.speed}m/s</td>
+      </tr>
+      <tr>
+        <th>Visibility</th>
+        <td>${(data.visibility)/1000}km</td>
+      </tr>
+    </tbody>
+  </table>
+  `
+}
+
+/*
+*/
