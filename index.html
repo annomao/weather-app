@@ -5,19 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <section id="display-info">
-
-  </section>
-  <section id="reviews-section">
-    <h2>Leave review</h2>
-    <form id="review-form">
-      <input type="text" name="" id="">
-      <input type="button" value="">
+  <!-- This section has the form to get user input -->
+  <section id="city-section">
+    <form>
+      <div class="mb-3">
+        <label for="city" class="form-label">City Name</label>
+        <input type="text" class="form-control" id="city" aria-describedby="cityHelp">
+        <div id="cityHelp" class="form-text">Kindly input a <strong>city</strong> name</div>
+      </div>
+      <input type="submit" class="btn btn-primary" value="SUBMIT">
     </form>
   </section>
+
+  <!-- Section to display information gathered from API -->
+  
+
   <script src="js/index.js"></script>
 </body>
 </html>
