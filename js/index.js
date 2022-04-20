@@ -1,9 +1,22 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-  getWeatherData()
+  getWeatherByCoordinates()
+  getWeatherCityData()
 })
+// global variables
+const appKey = 'd80e6647e32d60a5868d475d584ac6f2';
+const metric = "metric"
 
-function getWeatherData(){
-  const displaySection = document.querySelector("#display-section")
+//function that does fetching
+function fetchData(url){
+  fetch(url)
+    .then(res => res.json())
+    .then (data => {
+      console.log(data)
+      renderWeatherInfo(data)
+    })
+}
+
+function getWeatherCityData(){
   const cityForm = document.querySelector("#city-form")
   const city = document.querySelector("#city-input")
   cityForm.addEventListener("submit",(event)=>{
@@ -11,16 +24,26 @@ function getWeatherData(){
     event.preventDefault()
 
     const cityName = city.value
-    const appKey = 'd80e6647e32d60a5868d475d584ac6f2';
-    const url =`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${appKey}&units=metric`
-    fetch(url)
-    .then(res => res.json())
-    .then (data => {
-      console.log(data)
-      renderWeatherInfo(data)
-    })
+    const cityUrl =`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${appKey}&units=${metric}`
+    fetchData(cityUrl)
     event.target.reset()
   })
+}
+// function to get weather using coordintes 
+function getWeatherByCoordinates(){
+  let long;
+  let lat;
+  // Accessing Geolocation of User
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position)
+      long = position.coords.longitude;
+      lat = position.coords.latitude;
+
+      let geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${appKey}&units=${metric}`
+      fetchData(geoUrl)
+    });
+  }
 }
 
 // function to display weather data based on city input
@@ -68,6 +91,3 @@ function renderWeatherInfo(data){
   </table>
   `
 }
-
-/*
-*/
