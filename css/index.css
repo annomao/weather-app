@@ -42,7 +42,7 @@ body{
 #city-input::placeholder{
   color: white;
 }
-button{
+button[type="submit"]{
   float:right;
   width:20%;
   background-color: rgb(66,75,82);

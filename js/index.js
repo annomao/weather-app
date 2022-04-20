@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-  getWeatherByCoordinates()
+  //getWeatherByCoordinates()
   getWeatherCityData()
 })
 // global variables
@@ -94,5 +94,9 @@ function renderWeatherInfo(data){
       </tr>
     </tbody>
   </table>
+  <div>
+  <button><i class="fa fa-thumbs-down"></i><span>0</span></button>
+  <button><i class="fa fa-thumbs-up"></i><span>0</span></button>
+  </div>
   `
 }
