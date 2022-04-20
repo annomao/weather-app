@@ -12,20 +12,26 @@
 </head>
 <body>
   <!-- This section has the form to get user input -->
-  <div class="container d-flex justify-content-center">
+  <div class="container d-flex">
 
     <div class="items row">
       <div class="col-md-8 left">
         <form id="city-form">
           <div class="m-3 form-item">
-            <input type="text" class="form-control" id="city" placeholder="Search" required>
+            <input type="text" class="form-control" id="city-input" placeholder="Search" required>
             <button type="submit"><i class="fa fa-search"></i></button>
           </div>
         </form>
+        <div class="weather-summary">
+          <p id="degrees">degrees</p>
+          <p id="city">city</p>
+          <p id="time">time</p>
+          <span id="weather-icon">icon</span>
+        </div>
       </div>
 
       <div class="col-md-4 right">
-        
+        <h4>Weather Details</h4>
       </div>
     </div>
   </div>
