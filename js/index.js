@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", ()=>{
-  //getWeatherByCoordinates()
+  getWeatherByCoordinates()
   getWeatherCityData()
 })
 // global variables
@@ -11,16 +11,16 @@ function fetchData(url){
   fetch(url)
     .then(res => res.json())
     .then (data => {
-      console.log(data)
       renderWeatherInfo(data)
     })
 }
 
 function getWeatherCityData(){
+
   const cityForm = document.querySelector("#city-form")
   const city = document.querySelector("#city-input")
-  cityForm.addEventListener("submit",(event)=>{
 
+  cityForm.addEventListener("submit",(event)=>{
     event.preventDefault()
 
     const cityName = city.value
@@ -29,14 +29,14 @@ function getWeatherCityData(){
     event.target.reset()
   })
 }
+
 // function to get weather using coordintes 
 function getWeatherByCoordinates(){
   let long;
   let lat;
-  // Accessing Geolocation of User
+  // Accessing Geolocation of User using buitl in navigator obj and methods
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position)
       long = position.coords.longitude;
       lat = position.coords.latitude;
 
@@ -48,6 +48,7 @@ function getWeatherByCoordinates(){
 
 // function to display weather data based on city input
 function renderWeatherInfo(data){
+
   let dt = new Date(data.dt * 1000)
   let iconUrl=`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
 
