@@ -30,7 +30,7 @@ p{
   outline: none;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid black;
   color: white;
   transition: transform 1s;
   padding: 10px;
@@ -75,6 +75,7 @@ button[type="submit"]{
 #city{
   margin-top: 20%;
   font-size: 4.5em;
+  color:rgba(0, 0, 0, 0.8);
 }
 #time{
   font-size: 0.8em;
@@ -132,14 +133,16 @@ table tr{
     position: absolute;
     bottom: 0;
   }
+  #city{
+    color:white;
+  }
   table{
-    margin-top: 20%;
+    margin-top: 10%;
+    border: none;
+    margin-left: 10%;
   }
   h4{
     margin-top: 1em;
     color: white;
-  }
-  table{
-    border: none;
   }
 } 
