@@ -109,7 +109,8 @@ function renderWeatherInfo(data){
       </tr>
     </tbody>
   </table>
-  <div>
+  <div id="vote">
+  <p>How are we feeling about the weather today?</p>
   <button id="thumb-up"><i class="fa fa-thumbs-up"></i><span>0</span></button>
   <button id="thumb-down"><i class="fa fa-thumbs-down"></i><span>0</span></button>
   </div>
