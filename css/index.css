@@ -5,17 +5,17 @@
 }
 body{
   height: auto;
-  background-image: url("../assets/bg.jpg");
+  background-image: url("../assets/cloud.gif");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 0.8);
 }
 .container{
   width: 100%;
   height: 100%;
-  background-color: rgba(245, 245, 220,0.2);
-  box-shadow: 5px 5px 10px #080808, -5px -5px 10px #080808;
+  background-color: rgba(245, 245, 220,0.5);
+  box-shadow: 5px 5px 10px #111111, -5px -5px 10px #080808;
 }
 .items{
   width: 100%;
@@ -43,12 +43,12 @@ p{
   box-shadow: 5px 5px 10px #080808;
 }
 #city-input::placeholder{
-  color: white;
+  color: rgba(0, 0, 0, 0.7);
 }
 button{
   width:20%;
-  background-color: transparent;
-  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid black;
   padding: 10px;
   color: white;
   font-size: 17px;
@@ -59,7 +59,7 @@ button:hover{
 }
 button[type="submit"]{
   float:right;
-  background-color: rgb(66,75,82);
+  border: 1px solid white;
 }
 
 #city-form::after {
@@ -88,8 +88,12 @@ img{
 h4{
   text-align: center;
 }
+table{
+  border: 2px solid black;
+  border-collapse: collapse;
+}
 table tr{
-  color: white;
+  color: rgba(0, 0, 0, 0.7);
   font-size: 1em;
   font-weight: 600;
 }
@@ -103,11 +107,11 @@ table tr{
   }
   .container{
   width: 100%;
-  height: 80%;
+  height: 75%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -30%);
   }
   .right{
     border-left: 2px solid rgba(8, 8, 8, 0.4);
@@ -120,19 +124,13 @@ table tr{
     position: absolute;
     bottom: 0;
   }
-  #degrees{
-    font-size: 4em;
-  }
-  #city{
-    font-size: 5em;
-  }
-  #time{
-    font-size: 1.1em;
-  }
   table{
     margin-top: 20%;
   }
   h4{
     margin-top: 1em;
+  }
+  table{
+    border: none;
   }
 } 
