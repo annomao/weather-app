@@ -25,7 +25,7 @@ function fetchData(url){
 function handleError(error){
   const weatherSummary = document.querySelector(".weather-summary")
   const p = document.createElement("p")
-  p.id = "error"
+  p.className = "error"
   p.style.color = "red"
   p.style.marginTop = "1em"
   p.innerText = error
@@ -71,8 +71,11 @@ function renderWeatherInfo(data){
   let iconUrl=`http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`
 
 
-  const errorText = document.querySelector("#error")
-  if(errorText){errorText.textContent = ""}
+  let errorText = document.querySelectorAll(".error")
+  if(errorText){
+    for (let i = 0; i<errorText.length;i++)
+    errorText[i].remove()
+  }
   
 
   const weatherDetails = document.querySelector("#weather-details")
