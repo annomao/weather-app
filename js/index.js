@@ -8,11 +8,28 @@ const metric = "metric"
 
 //function that does fetching
 function fetchData(url){
+
   fetch(url)
-    .then(res => res.json())
-    .then (data => {
-      renderWeatherInfo(data)
-    })
+  .then(res => {
+    if(res.ok) return res.json(); 
+        else throw new Error("Sorry! We could not find information for the requested city")
+  })
+  .then (data => {
+    renderWeatherInfo(data)
+  })
+  .catch(error => {
+    handleError(error)
+  })
+}
+
+function handleError(error){
+  const weatherSummary = document.querySelector(".weather-summary")
+  const p = document.createElement("p")
+  p.style.color = "red"
+  p.style.marginTop = "1em"
+  p.innerText = error
+  let parentDiv = weatherSummary.parentNode
+  parentDiv.insertBefore(p,weatherSummary)
 }
 
 function getWeatherCityData(){
